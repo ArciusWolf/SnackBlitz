@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &1455633949
+--- !u!1 &802013232
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,42 +131,59 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1455633951}
-  - component: {fileID: 1455633950}
+  - component: {fileID: 802013234}
+  - component: {fileID: 802013233}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: Food Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1455633950
+--- !u!114 &802013233
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455633949}
+  m_GameObject: {fileID: 802013232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24262aa8048e57647881f6ae32acb16d, type: 3}
+  m_Script: {fileID: 11500000, guid: facd567902431a24f939eea18bfeedfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cells:
-  - type: 0
-    prefab: {fileID: 0}
-  width: 0
-  height: 0
---- !u!4 &1455633951
+  width: 5
+  height: 5
+  spacingX: 1
+  spacingY: 1
+  foodPrefab:
+  - {fileID: 2225165078206455245, guid: 6cb5eb63f09dbdf46a28cd1d02df7e57, type: 3}
+  - {fileID: 2958384846034527041, guid: 42d070a6a3b40cd4abe6b6d248494774, type: 3}
+  - {fileID: 9185489500431440457, guid: 0f97347e9053c24428e8298f52238838, type: 3}
+  - {fileID: 8700205596816424271, guid: 9833bb851ce98544dac846aa160a5942, type: 3}
+  - {fileID: 7800896181828433073, guid: af4fcd7f9a214a641bfb3967fec25259, type: 3}
+  - {fileID: 2356616722676727136, guid: eba6b7d2e1d2fd54b8def19186fa6b6e, type: 3}
+  foodGO: {fileID: 802013232}
+  arrayLayout:
+    rows:
+    - row: 000000000000
+    - row: 000000000000
+    - row: 000000000000
+    - row: 000000000000
+    - row: 000000000000
+    - row: 000000000000
+    - row: 000000000000
+    - row: 000000000000
+--- !u!4 &802013234
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455633949}
+  m_GameObject: {fileID: 802013232}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.3336074, y: -0.32957458, z: -0.09092449}
+  m_LocalPosition: {x: 0, y: 2.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -269,4 +286,4 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2143961887}
-  - {fileID: 1455633951}
+  - {fileID: 802013234}
