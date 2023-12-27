@@ -26,6 +26,34 @@ public class Food : MonoBehaviour
         xIndex = _x;
         yIndex = _y;
     }
+
+    // Move to new position
+    public void moveToTarget(Vector2 _targetPos)
+    {
+        StartCoroutine(MoveCoroutine(_targetPos));
+    }
+    // Move Coroutine
+    private IEnumerator MoveCoroutine(Vector2 _targetPos)
+    {
+        isMoving = true;
+        float duration = 0.2f;
+
+        Vector2 startPos = transform.position;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration;
+
+            transform.position = Vector2.Lerp(startPos, _targetPos, t);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = _targetPos;
+        isMoving = false;
+    }
 }
 
 public enum FoodType
