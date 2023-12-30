@@ -115,6 +115,8 @@ public class FoodBoard : MonoBehaviour
 
     public bool CheckBoard()
     {
+        if (GameManager.Instance.isGameEnded)
+            return false;
         Debug.Log("Checking Board");
         bool hasMatched = false;
 
@@ -132,8 +134,10 @@ public class FoodBoard : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
+                //checking if food node is usable
                 if (foodBoard[x, y].isUsable)
                 {
+                    //then proceed to get food class in node.
                     Food food = foodBoard[x, y].food.GetComponent<Food>();
 
                     //ensure its not matched
@@ -167,7 +171,7 @@ public class FoodBoard : MonoBehaviour
             }
 
         RemoveAndRefill(foodToRemove);
-        //GameManager.Instance.ProcessTurn(foodToRemove.Count, _subtractMoves);
+        GameManager.Instance.ProcessTurn(foodToRemove.Count, _subtractMoves);
         yield return new WaitForSeconds(0.4f);
 
         if (CheckBoard())
@@ -178,6 +182,7 @@ public class FoodBoard : MonoBehaviour
 
     private void RemoveAndRefill(List<Food> _foodToRemove)
     {
+        //Removing the food and clearing the board at that location
         foreach (Food food in _foodToRemove)
         {
             int _xIndex = food.xIndex;
@@ -194,7 +199,7 @@ public class FoodBoard : MonoBehaviour
             {
                 if (foodBoard[x, y].food == null)
                 {
-                    Debug.Log("Checking X: " + x + " Y: " + y);
+                    Debug.Log("X: " + x + " Y: " + y + "is empty.");
                     RefillFood(x, y);
                 }
 
@@ -257,10 +262,6 @@ public class FoodBoard : MonoBehaviour
         }
         return lowestNull;
     }
-
-    #region CascadeFood
-
-    #endregion
 
     #region MatchLogic
     private MatchResult SuperMatch(MatchResult _matchedResult)

@@ -36,14 +36,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pointsTxt.text = "Points: " + points.ToString();
-        movesTxt.text = "Moves: " + moves.ToString();
-        goalTxt.text = "Goal: " + goal.ToString();
+        pointsTxt.text = points.ToString();
+        movesTxt.text = moves.ToString();
+        goalTxt.text = goal.ToString();
     }
 
     public void ProcessTurn(int _pointsToGain, bool _subtractMoves)
     {
-        points += _pointsToGain;
+        points += _pointsToGain * 10;
         if (_subtractMoves)
             moves--;
 
