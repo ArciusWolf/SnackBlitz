@@ -1,0 +1,4 @@
+repository "SnackBlitz@AlphaFang@cloud"
+  path "/"
+    br "/main"
+    co "/main"
